@@ -3,7 +3,7 @@
 ![GitHub repo status](https://img.shields.io/badge/status-archived-yellowgreen?style=flat)
 ![GitHub license](https://img.shields.io/github/license/sheikhartin/recognition-animals-by-physical-traits)
 ![GitHub contributors](https://img.shields.io/github/contributors/sheikhartin/recognition-animals-by-physical-traits)
-![GitHub tag (qlatest by date)](https://img.shields.io/github/v/tag/sheikhartin/recognition-animals-by-physical-traits)
+![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/sheikhartin/recognition-animals-by-physical-traits)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sheikhartin/recognition-animals-by-physical-traits)
 
 These days, animals traits are more important than ever for me, so I decided to create a simple app to help me recognize them more easily — and this is my first data science project.
@@ -27,7 +27,7 @@ The original dataset provided by the [UCI machine learning repository](https://a
 - **Breathes**: Boolean
 - **Venomous**: Boolean
 - **Fins**: Boolean
-- **Legs**: Numeric (set of values between 0, 2, 4, 6, 8)
+- **Legs**: Numeric (set of values between 0, 2, 4, 6 and 8)
 - **Tail**: Boolean
 - **Domestic**: Boolean
 - **Catsize**: Boolean
