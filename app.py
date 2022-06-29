@@ -13,19 +13,21 @@ from sklearn.ensemble import RandomForestClassifier
 def apply_model(model: str) -> None:
     """Applies the model with selected parameters to the data."""
     st.markdown(f'##### {model.title()}')
-    model = {'logistic regression': LogisticRegression(),
-             'k-nearest neighbors': KNeighborsClassifier(),
-             'support vector machine': SVC(),
-             'random forest': RandomForestClassifier()}.get(model)
+    model = {
+        'logistic regression': LogisticRegression(),
+        'k-nearest neighbors': KNeighborsClassifier(),
+        'support vector machine': SVC(),
+        'random forest': RandomForestClassifier(),
+    }.get(model)
     if model is None:
         st.error('Error while applying model...')
         return None
 
     for _ in range(process_reps):
-        X = df_zoo[features].values
-        y = df_zoo['type'].values
+        X = df[features].values
+        y = df['type'].values
         X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=test_size_percentage / 100)
+            X, y, test_size=test_size_percentage/100)
 
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
@@ -35,15 +37,15 @@ def apply_model(model: str) -> None:
         st.dataframe(pd.DataFrame([y_test, y_pred], index=['actual', 'predicted']))
 
 
-zoo_dataset_filepath = Path('data/zoo.csv')
-zoo_dataset_url = 'https://raw.githubusercontent.com/sheikhartin/recognition-animals-by-physical-traits/master/data/zoo.csv'
-# Download the dataset if it doesn't exist or is empty.
-if not zoo_dataset_filepath.exists() or \
-   zoo_dataset_filepath.stat().st_size == 0:
+dataset_filepath = Path('data/zoo.csv')
+dataset_url = 'https://raw.githubusercontent.com/sheikhartin/recognition-animals-by-physical-traits/master/data/zoo.csv'
+# If the data file doesn't exist or is empty, it will be downloaded.
+if not dataset_filepath.exists() or dataset_filepath.stat().st_size == 0:
     st.warning('Downloading the dataset... This may take a while.')
-    zoo_dataset_filepath.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run(['wget', '-q', '-O', str(zoo_dataset_filepath),
-                    zoo_dataset_url])
+    dataset_filepath.parent.mkdir(parents=True, exist_ok=True)
+    subprocess.run([
+        'wget', '-q', '-O', str(dataset_filepath), dataset_url
+    ])
 
 st.set_page_config(
     page_title='Classify Animals by Their Physical Traits', page_icon='🐙',
@@ -103,8 +105,8 @@ st.markdown("""
     - **Domestic**: Boolean
     - **Catsize**: Boolean
     - **Type**: Numeric (an integer in range 1-7)""")
-df_zoo = pd.read_csv(zoo_dataset_filepath)
-st.dataframe(df_zoo[['animal name', *features, 'type']])
+df = pd.read_csv(dataset_filepath)
+st.dataframe(df[['animal name', *features, 'type']])
 
 st.markdown("""
     ### Predictions
