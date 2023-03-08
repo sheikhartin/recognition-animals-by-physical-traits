@@ -6,7 +6,7 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/sheikhartin/recognition-animals-by-physical-traits)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sheikhartin/recognition-animals-by-physical-traits)
 
-These days, animals traits are more important than ever for me, so I decided to create a simple app to help me recognize them more easily — and this is my first data science project.
+These days, animals traits are more important than ever for me, so I decided to create a simple app to help me recognize them more easily.
 
 ![A funny animal eating carrots](https://media.giphy.com/media/14uXQbPS73Y3qU/giphy.gif)
 
@@ -31,13 +31,12 @@ The original dataset provided by the [UCI machine learning repository](https://a
 - **Tail**: Boolean
 - **Domestic**: Boolean
 - **Catsize**: Boolean
-- **Type**: Numeric (an integer in range 1-7)
+- **Type**: Numeric (an integer in the range 1 to 7)
 
 ### Screenshots
 
 ![Page header that explains a bit about the project](screenshots/page-header-with-extended-sidebar.png)
 ![Display the dataset with selected features in tabular form](screenshots/dataset-table-section.png)
-![Some options have changed](screenshots/predicts-based-on-manipulated-options.png)
 ![When all models are applied, prints the "All done! 🎉" message](screenshots/all-models-applied.png)
 
 ### Usage
